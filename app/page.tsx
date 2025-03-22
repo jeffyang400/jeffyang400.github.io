@@ -11,7 +11,7 @@ export default function Home(): JSX.Element {
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-3xl font-bold mb-4">Home</h1>
       <Image
-        src="/nextjs-website/profile.jpg" 
+        src="/nextjs-website/my-profile.jpg" 
         alt="Profile Picture" 
         width={192}
         height={192}
