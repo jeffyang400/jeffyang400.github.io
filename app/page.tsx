@@ -2,6 +2,15 @@
 
 import { JSX, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { motion } from "framer-motion";
+import { Figtree } from "next/font/google";
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // Include the weights you need
+  display: 'swap',
+  variable: '--font-figtree', // Optional: for CSS variable usage
+});
 
 export default function Home(): JSX.Element {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,14 +23,20 @@ export default function Home(): JSX.Element {
   return (
   <div className="flex min-h-screen relative">
     {/* Background image with blur */}
-    <div className="absolute inset-0 bg-center bg-no-repeat blur-lg scale-105 overflow-hidden">
-    <Image
-        src="/background-image.png"
-        alt="Background Image"
-        className="object-cover"
-        fill
-      />
-    </div>
+      <motion.div
+        initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }} // Start black & blurred
+        animate={{ opacity: 1, scale: 1.05, filter: "blur(8px)" }} // End visible & less blurred
+        transition={{ duration: 1.5, ease: "easeInOut", delay: 1.2 }}
+        className="absolute inset-0 bg-center bg-no-repeat overflow-hidden h-screen w-full"
+      >
+        <Image
+          src="/background-image.png"
+          alt="Background Image"
+          className="object-cover"
+          fill
+          priority
+        />
+      </motion.div>
   
     {/* Content container */}
     <div className="relative items-center flex mx-auto p-4">      
@@ -52,25 +67,25 @@ export default function Home(): JSX.Element {
               </a>
             </div>
           </div>
-          <p className="text-lg text-center max-w-md text-black font-semibold">
-            Jeffrey graduated from San Jose State University with a B.S. in Software Engineering and is currently studying for M.S. Computer Science at Johns Hopkins University
-          </p>
+          
         </div>
         
         {/* Second section - Profile Introduction */}
         <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-2xl mx-auto overflow-auto">
-          <h1 className="text-5xl font-bold mb-4 text-center text-black">This is Jeffrey</h1>
-          <div className={`opacity-0 transform scale-95 ${isVisible ? 'opacity-100 scale-100' : ''} transition-all duration-700 ease-in-out`}>
+        <h1 className={`${figtree.className} text-5xl mb-4 text-center text-black`}>Hi I&apos;m Jeffrey</h1>          
+        <div className={`opacity-0 transform scale-95 ${isVisible ? 'opacity-100 scale-100' : ''} transition-all duration-700 ease-in-out`}>
             <Image
               src="/my-profile.jpg"
               alt="Profile Picture"
-              width={256}
-              height={256}
+              width={300}
+              height={300}
               className="object-cover mb-6 rounded-lg shadow-lg"
             />
           </div>
-          <p className="text-lg text-center max-w-md text-black font-semibold">
-            Jeffrey is a Software Engineer Intern @ BawsHuman
+          <p className={`${figtree.className} text-lg text-center max-w-md text-black`}>
+            I graduated from San Jose State University with a B.S. in Software Engineering, and I am interning at <a href="https://www.linkedin.com/company/bawshuman/posts/?feedView=all" className="underline">
+              BawsHuman
+              </a> while studying part-time for a Master&apos;s in Computer Science at Johns Hopkins University
           </p>
         </div>
 
@@ -101,9 +116,7 @@ export default function Home(): JSX.Element {
               
             </div>
           </div>
-          <p className="text-lg text-center max-w-md text-black font-semibold">
-                Click on the images above to learn more
-          </p>
+          
         </div>
       </div>
     </div>
