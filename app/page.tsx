@@ -24,10 +24,10 @@ export default function Home(): JSX.Element {
     </div>
   
     {/* Content container */}
-    <div className="relative w-full z-10 flex items-center">      
+    <div className="relative items-center flex mx-auto p-4">      
         
         {/* First section - Education */}
-        <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-2xl max-h-[50vh] overflow-auto">
+        <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-xl mx-auto overflow-auto">
           <div className="flex space-x-6 mb-6">
             <div className={`opacity-0 ${isVisible ? 'opacity-100' : ''} transition-opacity delay-800 duration-1000 ease-in-out`}>
               <a href="https://www.jhu.edu/" target="_blank" rel="noopener noreferrer">
@@ -58,7 +58,7 @@ export default function Home(): JSX.Element {
         </div>
         
         {/* Second section - Profile Introduction */}
-        <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-2xl max-h-[50vh] overflow-auto">
+        <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-2xl mx-auto overflow-auto">
           <h1 className="text-5xl font-bold mb-4 text-center text-black">This is Jeffrey</h1>
           <div className={`opacity-0 transform scale-95 ${isVisible ? 'opacity-100 scale-100' : ''} transition-all duration-700 ease-in-out`}>
             <Image
@@ -75,7 +75,7 @@ export default function Home(): JSX.Element {
         </div>
 
         {/* Third section - Social Links */}
-        <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-2xl max-h-[50vh] overflow-auto">
+        <div className="flex-1 flex flex-col items-center justify-center p-4 m-4 bg-transparent bg-opacity-40 rounded-xl shadow-xl mx-auto overflow-auto">
           <div className="flex space-x-6 mb-6">
             <div className={`opacity-0 ${isVisible ? 'opacity-100' : ''} transition-opacity delay-600 duration-1000 ease-in-out`}>
               <a href="https://www.linkedin.com/in/jeffrey-yang-9a9139186/" target="_blank" rel="noopener noreferrer">
