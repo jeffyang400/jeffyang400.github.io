@@ -58,7 +58,7 @@ export default function Home(): JSX.Element {
             <div className={`opacity-0 ${isVisible ? 'opacity-100' : ''} transition-opacity delay-700 duration-1000 ease-in-out`}>
               <a href="https://www.sjsu.edu/" target="_blank" rel="noopener noreferrer">
                 <Image
-                  src="/sjsu-mascot.svg"
+                  src="/sjsu-mascot.png"
                   alt="Go to SJSU Homepage"
                   width={150}
                   height={150}
